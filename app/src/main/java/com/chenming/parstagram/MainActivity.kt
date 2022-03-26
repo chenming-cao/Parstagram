@@ -49,6 +49,13 @@ class MainActivity : AppCompatActivity() {
             onLaunchCamera()
         }
 
+        findViewById<Button>(R.id.btnLogout).setOnClickListener {
+            // Launch camera to let user take picture
+            ParseUser.logOut()
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
 //        queryPosts()
     }
 
