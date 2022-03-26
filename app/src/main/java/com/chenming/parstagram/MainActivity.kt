@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             if (photoFile != null) {
                 submitPost(description, user, photoFile!!)
             } else {
-                //
+                Toast.makeText(this, "Picture is missing!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -70,8 +70,10 @@ class MainActivity : AppCompatActivity() {
             if (exception != null) {
                 // Something has went wrong
                 Log.e(TAG, "Error while saving post")
+                Toast.makeText(this, "Description is missing!", Toast.LENGTH_SHORT).show()
                 exception.printStackTrace()
             } else {
+                Toast.makeText(this, "Successfully saved post!", Toast.LENGTH_SHORT).show()
                 Log.i(TAG, "Successfully saved post")
             }
         }
