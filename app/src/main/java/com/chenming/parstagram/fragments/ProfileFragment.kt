@@ -10,6 +10,7 @@ import com.parse.ParseUser
 
 class ProfileFragment: FeedFragment() {
     override fun queryPosts() {
+        adapter.clear()
         // Specify which class to query
         val query: ParseQuery<Post> = ParseQuery.getQuery(Post::class.java)
         // Find all Post objects
@@ -33,6 +34,7 @@ class ProfileFragment: FeedFragment() {
                         }
                         allPosts.addAll(posts)
                         adapter.notifyDataSetChanged()
+                        swipeContainer.setRefreshing(false)
                     }
                 }
             }
